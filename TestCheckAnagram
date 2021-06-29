@@ -1,0 +1,8 @@
+public class CheckAnagramTest {
+    @Test
+    public void shouldReturnTrueIfWordsAreAnagrams(){
+        CheckAnagram checkAnagram=new CheckAnagram();
+        
+        Assert.assertEquals(true, checkAnagram.isAnagram("TEA", "Ate"));
+    }
+}
