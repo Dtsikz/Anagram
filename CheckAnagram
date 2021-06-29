@@ -1,0 +1,29 @@
+public class CheckAnagram {
+    
+    boolean status=false;
+    int countForStr1=0;
+    int countForStr2=0;
+    String str1ToLowerCase,str2ToLowerCase;
+    
+    public boolean isAnagram(String str1, String str2){
+       
+        str1ToLowerCase=str1.toLowerCase().trim();
+        str2ToLowerCase=str2.toLowerCase().trim();
+        
+        status = str1ToLowerCase.length() == str2ToLowerCase.length();
+        if (status) {            
+            IntStream.range(0, str1ToLowerCase.length()).forEach(i -> {
+                char tempChar = str1ToLowerCase.charAt(i);
+                IntStream.range(0, str1ToLowerCase.length()).forEach(j -> {
+                    if (str1ToLowerCase.charAt(j) == tempChar)
+                        countForStr1++;
+                    if (str2ToLowerCase.charAt(j) == tempChar)
+                        countForStr2++;
+                });
+            });
+            return status;
+        }
+        else
+            return false;
+    }
+}
